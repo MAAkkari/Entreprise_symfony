@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detail d'une entreprise{% endblock %}
+
+{% block body %}
+
+<h1>Détail d'une entreprise</h1>
+<h2> {{entreprise}} </h2>   
+<p>
+    Adresse : {{entreprise.AdresseComplete}}
+    Date de Création :{{entreprise.dateCreation|date("d-m-Y")}}
+</p>  
+{% if entreprise.employes | length >0 %}
+<h2>Liste des Salariés</h2>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>employe</th>
+        </tr>
+    </thead>
+    <tbody>
+
+   
+        {% for employe in entreprise.employes %}
+          <tr><td><a href="{{path("show_employe",{'id':employe.id})}} ">{{employe}}</a></td></tr> 
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>Aucun salarié dans cette l'entreprise {{entreprise.raisonSociale}} </p>
+{% endif %}
+
+    
+{% endblock %}
