@@ -18,6 +18,7 @@ class EmployeType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class,[
+                
                 'attr'=>[
                     'class'=>'form-control'
                 ]
@@ -40,6 +41,7 @@ class EmployeType extends AbstractType
                 ]
             ])
             ->add('ville', TextType::class,[
+                'required'=>false,
                 'attr'=>[
                     'class'=>'form-control'
                 ]
@@ -50,7 +52,7 @@ class EmployeType extends AbstractType
                     'class'=>'form-control'
                 ]
                 ])
-            ->add('Valider', SubmitType::class,[
+            ->add('valider', SubmitType::class,[
                 'attr'=>[
                     'class'=>'btn btn-success'
                 ]

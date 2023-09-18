@@ -6,6 +6,10 @@
     <h1>Liste des Entreprises</h1>
     
     {% for entreprise in entreprises  %}
-        <a href="{{path('show_entreprise',{'id':entreprise.id} ) }} ">{{entreprise}}</a> <br>
-    {% endfor %}  
+        <a href="{{path('show_entreprise',{'id':entreprise.id} ) }} ">{{entreprise}}</a> 
+        <a class="btn btn-warning" href="{{path('edit_entreprise',{'id':entreprise.id} ) }}">edit</a>
+        <a class="btn btn-danger" href="{{path('delete_entreprise',{'id':entreprise.id})}}">supp</a><br>
+    {% endfor %}
+    <a class="btn btn-success" href="{{path('new_entreprise')}}">ajouter</a>
+
 {% endblock %}
